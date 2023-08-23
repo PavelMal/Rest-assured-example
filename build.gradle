@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'com.qa'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+def allureVersion = '2.23.0'
+
+dependencies {
+    implementation 'io.qameta.allure:allure-rest-assured:' + allureVersion
+    implementation 'io.qameta.allure:allure-java-commons:' + allureVersion
+    implementation 'io.qameta.allure:allure-testng:' + allureVersion
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.3.1'
+    testImplementation group: 'org.testng', name: 'testng', version: '7.8.0'
+}
+
+test {
+    ignoreFailures = true
+    useTestNG {
+        systemProperties(System.getProperties())
+    }
+}
