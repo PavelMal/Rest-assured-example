@@ -10,6 +10,7 @@ repositories {
 }
 
 def allureVersion = '2.23.0'
+def lombokVersion = '1.18.28'
 
 dependencies {
     implementation 'io.qameta.allure:allure-rest-assured:' + allureVersion
@@ -17,6 +18,9 @@ dependencies {
     implementation 'io.qameta.allure:allure-testng:' + allureVersion
     testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.3.1'
     testImplementation group: 'org.testng', name: 'testng', version: '7.8.0'
+
+    compileOnly 'org.projectlombok:lombok:' + lombokVersion
+    annotationProcessor 'org.projectlombok:lombok:' + lombokVersion
 }
 
 test {
