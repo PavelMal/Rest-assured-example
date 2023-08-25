@@ -1,5 +1,6 @@
 package com.qa.user.post;
 
+import com.qa.api.Response.CustomResponse;
 import com.qa.api.model.Order;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
@@ -19,5 +20,9 @@ public class CreateOrderTest {
         Response response = doPost(CREATE_ORDER, createdOrder);
 
         checkStatusCode(OK, response.statusCode());
+
+        Order createdOrderResponse = CustomResponse.getResponseBodyAs(response, Order.class);
+
+
     }
 }
