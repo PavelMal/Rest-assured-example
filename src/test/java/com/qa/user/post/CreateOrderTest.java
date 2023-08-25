@@ -1,4 +1,4 @@
-package com.qa.user.get;
+package com.qa.user.post;
 
 import com.qa.api.url.OrderUrl;
 import io.restassured.response.Response;
@@ -9,7 +9,7 @@ import static com.qa.api.assertion.StatusCode.checkStatusCode;
 import static com.qa.api.request.Request.doGet;
 import static com.qa.api.statuscode.StatusCode.NOT_FOUND;
 
-public class GetOrder {
+public class CreateOrderTest {
 
     @Test(description = "Get non-existent order by ID")
     public void getNonExistentOrderById() {
