@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id "io.qameta.allure" version "2.11.2"
 }
 
-group 'com.qa'
-version '1.0'
+group 'org.example'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -12,14 +13,33 @@ repositories {
 def allureVersion = '2.23.0'
 
 dependencies {
-    implementation 'io.qameta.allure:allure-rest-assured:' + allureVersion
+    implementation 'org.testng:testng:7.3.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'io.qameta.allure:allure-java-commons:' + allureVersion
-    implementation 'io.qameta.allure:allure-testng:' + allureVersion
-    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.3.1'
-    testImplementation group: 'org.testng', name: 'testng', version: '7.8.0'
+    implementation 'io.rest-assured:rest-assured:4.3.3'
+    implementation 'io.qameta.allure:allure-rest-assured:' + allureVersion
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
 
+configurations {
+    testCompile
+}
+
+def protocol = project.hasProperty('protocol') ? project.getProperty('protocol') : "http"
+def host = project.hasProperty('host') ? project.getProperty('host') : "localhost"
+def port = project.hasProperty('port') ? project.getProperty('port') : "8080"
+def threads = project.hasProperty('threads') ? project.getProperty('threads') : 1
+def suite = project.hasProperty("suite") ? project.getProperty('suite') : "Single"
+
 test {
+
+    systemProperty 'threads', threads
+    systemProperty 'suite', suite
+    systemProperty 'protocol', protocol
+    systemProperty 'host', host
+    systemProperty 'port', port
+
     ignoreFailures = true
     useTestNG {
         systemProperties(System.getProperties())
