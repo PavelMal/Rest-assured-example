@@ -1,21 +1,23 @@
 package com.qa.user.post;
 
-import com.qa.api.url.OrderUrl;
+import com.qa.api.model.Order;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
-import static com.qa.api.assertion.Body.checkResponseBodyIsEmpty;
 import static com.qa.api.assertion.StatusCode.checkStatusCode;
-import static com.qa.api.request.Request.doGet;
-import static com.qa.api.statuscode.StatusCode.NOT_FOUND;
+import static com.qa.api.request.Request.doPost;
+import static com.qa.api.statuscode.StatusCode.OK;
+import static com.qa.api.url.OrderUrl.CREATE_ORDER;
 
 public class CreateOrderTest {
 
-    @Test(description = "Get non-existent order by ID")
+    @Test(description = "Create an order correct params")
     public void getNonExistentOrderById() {
-        Response response = doGet(OrderUrl.GET_ORDER, "999999999");
 
-        checkStatusCode(NOT_FOUND, response.statusCode());
-        checkResponseBodyIsEmpty(response);
+        Order createdOrder = new Order("test", 1L);
+
+        Response response = doPost(CREATE_ORDER, createdOrder);
+
+        checkStatusCode(OK, response.statusCode());
     }
 }
