@@ -5,6 +5,7 @@ import com.qa.api.model.Order;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
+import static com.qa.api.assertion.Order.checkOrderId;
 import static com.qa.api.assertion.StatusCode.checkStatusCode;
 import static com.qa.api.request.Request.doPost;
 import static com.qa.api.statuscode.StatusCode.OK;
@@ -23,6 +24,6 @@ public class CreateOrderTest {
 
         Order createdOrderResponse = CustomResponse.getResponseBodyAs(response, Order.class);
 
-
+        checkOrderId(1, createdOrderResponse.getId());
     }
 }
