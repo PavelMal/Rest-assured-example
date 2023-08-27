@@ -13,7 +13,7 @@ public class GetOrderTest {
 
     @Test(description = "Get non-existent order by ID")
     public void getNonExistentOrderById() {
-        Response response = doGet(OrderUrl.GET_ORDER, "999999999");
+        Response response = doGet(OrderUrl.GET_ORDER, 9999999);
 
         checkStatusCode(NOT_FOUND, response.statusCode());
         checkResponseBodyIsEmpty(response);

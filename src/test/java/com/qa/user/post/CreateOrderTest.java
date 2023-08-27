@@ -2,18 +2,19 @@ package com.qa.user.post;
 
 import com.qa.api.Response.CustomResponse;
 import com.qa.api.model.Order;
+import com.qa.api.url.OrderUrl;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static com.qa.api.Response.CustomResponse.getResponseBodyAs;
 import static com.qa.api.assertion.Order.checkOrderId;
+import static com.qa.api.assertion.Order.checkOrders;
 import static com.qa.api.assertion.StatusCode.checkStatusCode;
 import static com.qa.api.request.Request.doGet;
 import static com.qa.api.request.Request.doPost;
 import static com.qa.api.statuscode.StatusCode.OK;
-import static com.qa.api.url.OrderUrl.CLEAR_ORDERBOOK;
-import static com.qa.api.url.OrderUrl.CREATE_ORDER;
+import static com.qa.api.url.OrderUrl.*;
 
 public class CreateOrderTest {
 
@@ -33,6 +34,16 @@ public class CreateOrderTest {
 
         Order createdOrderResponse = getResponseBodyAs(response, Order.class);
 
-        checkOrderId(1, createdOrderResponse.getId());
+        int expectedOrderId = 1;
+
+        checkOrderId(expectedOrderId, createdOrderResponse.getId());
+
+        // Check order after creation by GET method
+
+        Response responseAfterCreatingOrder = doGet(GET_ORDER, expectedOrderId);
+        Order orderAfterCreation = getResponseBodyAs(responseAfterCreatingOrder, Order.class);
+        createdOrder.setId(expectedOrderId);
+
+        checkOrders(createdOrder, orderAfterCreation);
     }
 }

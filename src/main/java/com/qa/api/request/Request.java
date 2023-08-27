@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 public class Request {
 
     @Step("Send GET request to url: {url}?id={orderId}")
-    public static Response doGet(String url, String orderId) {
+    public static Response doGet(String url, int orderId) {
         return given().filter(new AllureRestAssured()).queryParam("id", orderId).get(url);
     }
 

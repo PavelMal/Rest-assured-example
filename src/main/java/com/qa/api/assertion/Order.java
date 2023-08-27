@@ -10,4 +10,9 @@ public class Order {
     public static void checkOrderId(int expectedOrderId, int actualOrderId) {
         assertEquals(actualOrderId, expectedOrderId);
     }
+
+    @Step("Check expected and actual orders")
+    public static void checkOrders(com.qa.api.model.Order expectedOrder, com.qa.api.model.Order actualOrder) {
+        assertEquals(actualOrder, expectedOrder);
+    }
 }
