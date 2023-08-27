@@ -8,4 +8,5 @@ public class OrderUrl {
 
     public static final String GET_ORDER = COMMON_URL_PART + Order.GET_ORDER;
     public static final String CREATE_ORDER = COMMON_URL_PART + Order.CREATE_ORDER;
+    public static final String CLEAR_ORDERBOOK = COMMON_URL_PART + Order.CLEAR_ORDERBOOK;
 }

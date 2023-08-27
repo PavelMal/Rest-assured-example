@@ -17,6 +17,9 @@ public class Request {
 
     @Step("Send POST request to url: {url}")
     public static Response doPost(String url, Order order) {
+        if (order == null) {
+            return given().filter(new AllureRestAssured()).contentType(ContentType.JSON).post(url);
+        }
         return given().filter(new AllureRestAssured()).body(order).contentType(ContentType.JSON).post(url);
     }
 }
