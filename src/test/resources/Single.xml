@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Single">
+    <listeners>
+        <listener class-name="com.qa.api.listener.Listener"/>
+    </listeners>
+    <test name="Single-tests" parallel="none">
+        <packages>
+            <package name="com.qa.user.*"/>
+        </packages>
+    </test>
+</suite>
