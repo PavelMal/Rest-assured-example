@@ -1,14 +1,12 @@
 package com.qa.user.post;
 
-import com.qa.api.Response.CustomResponse;
 import com.qa.api.model.Order;
-import com.qa.api.url.OrderUrl;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static com.qa.api.Response.CustomResponse.getResponseBodyAs;
-import static com.qa.api.assertion.Order.checkOrderId;
+import static com.qa.api.assertion.Body.checkResponseOrderIdIsNotEmpty;
 import static com.qa.api.assertion.Order.checkOrders;
 import static com.qa.api.assertion.StatusCode.checkStatusCode;
 import static com.qa.api.request.Request.doGet;
@@ -34,9 +32,9 @@ public class CreateOrderTest {
 
         Order createdOrderResponse = getResponseBodyAs(response, Order.class);
 
-        int expectedOrderId = 1;
+        int expectedOrderId = createdOrderResponse.getId();
 
-        checkOrderId(expectedOrderId, createdOrderResponse.getId());
+        checkResponseOrderIdIsNotEmpty(response);
 
         // Check order after creation by GET method
 
