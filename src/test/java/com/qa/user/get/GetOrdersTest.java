@@ -12,7 +12,7 @@ public class GetOrdersTest {
 
     @Test(description = "Get orders")
     public void getNonExistentOrderById() {
-        Response response = doGet(OrderUrl.GET_ORDER, null);
+        Response response = doGet(OrderUrl.GET_ORDER, (Integer) null);
 
         checkStatusCode(BAD_REQUEST, response.statusCode());
     }

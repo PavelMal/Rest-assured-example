@@ -24,8 +24,8 @@ public class GerOrderIncorrectOrderIdParamTest {
     }
 
 
-    @Test(description = "Get order by negative ID", dataProvider = "incorrectValues")
-    public void getOrderByNegativeId(Object values) {
+    @Test(description = "Get order by incorrect order ID", dataProvider = "incorrectValues")
+    public void getOrderByIncorrectOrderId(Object values) {
         Response response = doGet(OrderUrl.GET_ORDER, values);
 
         checkStatusCode(BAD_REQUEST, response.statusCode());
