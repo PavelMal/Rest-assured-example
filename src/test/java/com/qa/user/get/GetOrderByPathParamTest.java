@@ -1,21 +1,20 @@
 package com.qa.user.get;
 
 import com.qa.api.model.Order;
-import com.qa.api.url.OrderUrl;
 import io.restassured.response.Response;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static com.qa.api.Response.CustomResponse.getResponseBodyAs;
-import static com.qa.api.assertion.Order.checkOrders;
 import static com.qa.api.assertion.StatusCode.checkStatusCode;
 import static com.qa.api.request.Request.doGet;
 import static com.qa.api.request.Request.doPost;
-import static com.qa.api.statuscode.StatusCode.OK;
+import static com.qa.api.statuscode.StatusCode.NOT_FOUND;
 import static com.qa.api.url.OrderUrl.CREATE_ORDER;
+import static com.qa.api.url.OrderUrl.GET_ORDER;
 
-public class GetExistentOrderTest {
+public class GetOrderByPathParamTest {
 
     @BeforeTest(description = "Create order before execution")
     public void createOrder(ITestContext context) {
@@ -29,13 +28,12 @@ public class GetExistentOrderTest {
         context.setAttribute("order", createdOrder);
     }
 
-    @Test(description = "Get existent order by ID")
-    public void getExistentOrderById(ITestContext context) {
-        Order expectedOrder = (Order) context.getAttribute("order");
-        Response response = doGet(OrderUrl.GET_ORDER, expectedOrder.getId());
-        Order actualOrder = getResponseBodyAs(response, Order.class);
+    @Test(description = "Get order by path param")
+    public void getOrderByPathParam(ITestContext context) {
+        Order order = (Order) context.getAttribute("order");
 
-        checkStatusCode(OK, response.statusCode());
-        checkOrders(expectedOrder, actualOrder);
+        Response response = doGet(GET_ORDER + "/" + order.getId(), (Integer) null);
+
+        checkStatusCode(NOT_FOUND, response.statusCode());
     }
 }
