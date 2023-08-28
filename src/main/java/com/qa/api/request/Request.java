@@ -18,6 +18,11 @@ public class Request {
         return given().filter(new AllureRestAssured()).queryParam("id", orderId).get(url);
     }
 
+    @Step("Send GET request to url: {url}?id={orderId}")
+    public static Response doGet(String url, Object orderId) {
+        return given().filter(new AllureRestAssured()).queryParam("id", orderId).get(url);
+    }
+
     @Step("Send POST request to url: {url}")
     public static Response doPost(String url, Order order) {
         if (order == null) {
