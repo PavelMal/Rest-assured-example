@@ -15,7 +15,7 @@ import static com.qa.api.request.Request.doPost;
 import static com.qa.api.statuscode.StatusCode.OK;
 import static com.qa.api.url.OrderUrl.CREATE_ORDER;
 
-public class GetExistentOrderTest {
+public class GetExistentOrderByIdTest {
 
     @BeforeTest(description = "Create order before execution")
     public void createOrder(ITestContext context) {
