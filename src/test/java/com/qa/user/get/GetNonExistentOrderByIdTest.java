@@ -9,7 +9,7 @@ import static com.qa.api.assertion.StatusCode.checkStatusCode;
 import static com.qa.api.request.Request.doGet;
 import static com.qa.api.statuscode.StatusCode.NOT_FOUND;
 
-public class GetOrderTest {
+public class GetNonExistentOrderByIdTest {
 
     @Test(description = "Get non-existent order by ID")
     public void getNonExistentOrderById() {
