@@ -5,8 +5,8 @@
         <listener class-name="com.qa.api.listener.Listener"/>
     </listeners>
     <test name="Parallel-tests" parallel="methods">
-        <classes>
-            <class name="com.qa.user.get.GetNonExistentOrderByIdTest"/>
-        </classes>
+        <packages>
+            <package name="com.qa.user.*"/>
+        </packages>
     </test>
 </suite>

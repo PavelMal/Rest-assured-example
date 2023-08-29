@@ -13,4 +13,8 @@ public class Listener implements ITestListener {
         doPost(CLEAR_ORDERBOOK, null);
     }
 
+    @Override
+    public void onFinish(ITestContext context) {
+        doPost(CLEAR_ORDERBOOK, null);
+    }
 }
