@@ -14,7 +14,7 @@ import static com.qa.api.statuscode.StatusCode.OK;
 import static com.qa.api.url.OrderUrl.CREATE_ORDER;
 import static com.qa.api.url.OrderUrl.GET_ORDER;
 
-public class CreateOrderWithPriceMoreThanMaxTest {
+public class CreateOrderWithMaxPriceTest {
 
     @Test(description = "Create an order with MAX price")
     public void createOrderWithMaxPrice() {
