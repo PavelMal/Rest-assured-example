@@ -5,7 +5,6 @@ import com.qa.api.url.OrderUrl;
 import io.restassured.response.Response;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;

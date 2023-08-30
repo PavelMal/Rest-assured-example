@@ -4,7 +4,6 @@ import com.qa.api.model.Order;
 import io.restassured.response.Response;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static com.qa.api.Response.CustomResponse.getResponseBodyAs;
