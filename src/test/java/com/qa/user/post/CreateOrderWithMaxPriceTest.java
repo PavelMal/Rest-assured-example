@@ -1,6 +1,7 @@
 package com.qa.user.post;
 
 import com.qa.api.model.Order;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
@@ -16,6 +17,7 @@ import static com.qa.api.url.OrderUrl.GET_ORDER;
 
 public class CreateOrderWithMaxPriceTest {
 
+    @Story("Price")
     @Test(description = "Create an order with MAX price")
     public void createOrderWithMaxPrice() {
 

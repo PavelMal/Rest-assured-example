@@ -2,6 +2,7 @@ package com.qa.user.post;
 
 import com.qa.api.model.Order;
 import com.qa.api.model.ResponseError;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
@@ -14,6 +15,7 @@ import static com.qa.api.url.OrderUrl.CREATE_ORDER;
 
 public class CreateTestWithNoPriceTest {
 
+    @Story("Price")
     @Test(description = "Create an order with NO price")
     public void createOrderWithNoPrice() {
 
