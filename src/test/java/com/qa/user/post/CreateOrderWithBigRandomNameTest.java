@@ -5,8 +5,6 @@ import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.annotations.Test;
 
-import java.util.Random;
-
 import static com.qa.api.Response.CustomResponse.getResponseBodyAs;
 import static com.qa.api.assertion.Body.checkResponseOrderIdIsNotEmpty;
 import static com.qa.api.assertion.Order.checkOrders;

@@ -1,21 +1,18 @@
 package com.qa.user.get;
 
 import com.qa.api.model.Order;
-import com.qa.api.url.OrderUrl;
 import io.restassured.response.Response;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 
 import static com.qa.api.Response.CustomResponse.getResponseBodyAs;
-import static com.qa.api.assertion.Order.checkOrders;
 import static com.qa.api.assertion.StatusCode.checkStatusCode;
 import static com.qa.api.request.Request.doGet;
 import static com.qa.api.request.Request.doPost;
-import static com.qa.api.statuscode.StatusCode.*;
+import static com.qa.api.statuscode.StatusCode.BAD_REQUEST;
 import static com.qa.api.url.OrderUrl.CREATE_ORDER;
 import static com.qa.api.url.OrderUrl.GET_ORDER;
 

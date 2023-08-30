@@ -22,8 +22,6 @@ public class CreateTestWithNoPriceTest {
         Response response = doPost(CREATE_ORDER, createdOrder);
         ResponseError expectedError = new ResponseError(NEED_TO_PASS_PRICE);
 
-        System.out.println(response.getBody().prettyPrint());
-
         checkStatusCode(BAD_REQUEST, response.statusCode());
         checkResponseErrorEqualsExpectedError(response, expectedError);
     }
