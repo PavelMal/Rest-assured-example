@@ -21,6 +21,10 @@ public class Order {
         this.price = price;
     }
 
+    public Order(Long price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return new Gson().toJson(this);
