@@ -19,7 +19,7 @@ import static com.qa.api.url.OrderUrl.GET_ORDER;
 
 public class CreateOrderWithBigRandomNameTest {
 
-    @Test(description = "Create an order with big random name ")
+    @Test(description = "Create an order with big random name")
     public void createOrderWithBigRandomName() {
 
         Order createdOrder = new Order(RandomStringUtils.random(40), 1L);
